@@ -1,0 +1,149 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "750316feab0a41cb7f08d08efa56e857",
+    "entities": [
+      {
+        "tableName": "TeslimatEntity",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`teslimatId` TEXT NOT NULL, `ad` TEXT NOT NULL, PRIMARY KEY(`teslimatId`))",
+        "fields": [
+          {
+            "fieldPath": "teslimatId",
+            "columnName": "teslimatId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ad",
+            "columnName": "ad",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "teslimatId"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "SiparisEntity",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`siparisId` TEXT NOT NULL, `tarih` TEXT NOT NULL, `teslimatTarihi` TEXT NOT NULL, `teslimatciAdi` TEXT NOT NULL, PRIMARY KEY(`siparisId`))",
+        "fields": [
+          {
+            "fieldPath": "siparisId",
+            "columnName": "siparisId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tarih",
+            "columnName": "tarih",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "teslimatTarihi",
+            "columnName": "teslimatTarihi",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "teslimatciAdi",
+            "columnName": "teslimatciAdi",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "siparisId"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "UrunSiparisEntity",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`siparisId` TEXT NOT NULL, `urunId` TEXT NOT NULL, `adet` INTEGER NOT NULL, PRIMARY KEY(`siparisId`, `urunId`))",
+        "fields": [
+          {
+            "fieldPath": "siparisId",
+            "columnName": "siparisId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "urunId",
+            "columnName": "urunId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "adet",
+            "columnName": "adet",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "siparisId",
+            "urunId"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "UrunEntity",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`urunId` TEXT NOT NULL, `ad` TEXT NOT NULL, `adetFiyati` REAL NOT NULL, `teslimatcida` TEXT NOT NULL, PRIMARY KEY(`urunId`))",
+        "fields": [
+          {
+            "fieldPath": "urunId",
+            "columnName": "urunId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ad",
+            "columnName": "ad",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "adetFiyati",
+            "columnName": "adetFiyati",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "teslimatcida",
+            "columnName": "teslimatcida",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "urunId"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '750316feab0a41cb7f08d08efa56e857')"
+    ]
+  }
+}
